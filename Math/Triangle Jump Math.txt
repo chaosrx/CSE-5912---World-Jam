@@ -1,0 +1,28 @@
+public GameObject Player
+public GameObject Wall
+
+public float SpeedOffWallOut;
+public float SpeedOffWallUp;
+
+//Causes the player to come off that wall at 45degrees
+//and (speed/force) is added to the player
+
+//getting the new foward
+Vector3 wallNormal = wall.normal //code to get the normal from a raycast or collision
+Vector3 playerFoward = Player.transform.foward;
+
+float dotProduct = Vector3.Dot((PlayerFoward *-1), wallNormal);
+
+if(dotProduct > -1f && dotProduct < 0f)
+{
+	Vector3 triangle = playerFoward - wallNormal * dotProduct;
+	triangle = (triangle.normalized + wallNormal).normalized
+
+	//assigning the new foward
+	player.transform.foward = triangle;
+
+	//adding speed from the jump 
+	Rigidbody playRB = Player.GetComponent<Rigidbody>();
+	playRB .AddForce(transform.forward * SpeedOffWallOut);
+	playRB .AddForce(Vector3.up * SpeedOffWallUp);
+}

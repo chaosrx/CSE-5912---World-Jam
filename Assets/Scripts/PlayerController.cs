@@ -1,0 +1,226 @@
+﻿using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
+using UnityEngine.Networking;
+using UnityStandardAssets.Cameras;
+
+public class PlayerController : MonoBehaviour {
+
+	private float distToGround;
+
+	private float VerticalVelocity;
+	private Vector3 InternalVelocity;
+	private Rigidbody rb;
+
+
+	private Vector3 moveDirection = Vector3.zero;
+	private Vector3 reflection = Vector3.zero;
+	public Vector3 BurstDashVector = Vector3.zero;
+
+	public bool CanBurstDash;
+
+	public GameObject camera;
+
+	private int FreezeCount;
+	public int FreezeCountMax;
+
+	private float dotProduct;
+
+	public float RunSpeed;
+	public float MaxSpeed;
+	public float RotateSpeed;
+	public float gravity = 9.8f;
+	private float defaultGravity;
+	public float JumpForce = 10.0f;
+	public float WallJumpThreshold;
+	public float TriangleJumpThreshold;
+	public float WallJumpOffForce = 10.0f;
+	public float WallJumpUpForce = 10.0f;
+	public float TriangleJumpOffForce = 10.0f;
+	public float TriangleJumpUpForce = 10.0f;
+	public float CurrentSpeed;
+	public float BurstDashDampenFactor;
+
+	public Animator PlayerAnimator;
+
+	public bool IsDashing;
+
+	private SoundPlayer SFXPlayer;
+
+	Vector3 currentUp = Vector3.up;
+
+	void Start ()
+	{
+		rb = GetComponent<Rigidbody> ();
+		SFXPlayer = GetComponent<SoundPlayer> ();
+		
+        /*
+		if (isLocalPlayer)
+        {
+            GameObject cameraController = GameObject.Find("MultipurposeCameraRig");
+            //cameraController.GetComponent<PivotBasedCameraRig>().SetTarget(this.transform);
+            cameraController.GetComponent<AutoCam>().SetTarget(this.transform);
+            cameraController.GetComponent<AutoCam>().SetTargetRigidbody(rb);
+        }
+        */
+        
+	}
+
+	public bool IsGrounded()
+	{
+		RaycastHit hit;
+		float distance = 2f;
+		Vector3 dir = new Vector3(0, -1);
+
+		if(Physics.Raycast(transform.position, dir, out hit, distance))
+		{
+			return true;
+
+		}
+		else
+		{
+			return false;
+
+		}
+	}
+
+	// Used for Physics calculation
+	void FixedUpdate () 
+	{
+        /*
+		if (!isLocalPlayer)
+            return;
+            */
+        
+		
+		if (GetComponent<Slide> ().IsSliding == false) {
+			//Basic Character movement
+			//---------------------------
+			float moveHorizontal = Input.GetAxis ("Horizontal");
+			float moveVertical = Input.GetAxis ("Vertical");
+
+			moveDirection = new Vector3 (moveHorizontal * RunSpeed, 0.0f, moveVertical * RunSpeed);
+
+
+			//Calculates the true normal vector of the camera
+			//---------------------------
+			float dot = Vector3.Dot (Camera.main.transform.forward, Vector3.up);
+			Vector3 forward = Camera.main.transform.forward - (Vector3.up * dot);
+
+			if (IsGrounded ()) {
+				transform.rotation = Quaternion.LookRotation (forward.normalized, Vector3.up);
+
+				//Basic jump functionality
+				//---------------------------
+				if (Input.GetButton ("Jump")) {
+					rb.AddForce (new Vector3 (0, JumpForce, 0), ForceMode.Impulse);
+					SFXPlayer.PlaySound (0);
+				}
+			}
+		}
+			//Got the calculations, now make it go!
+			//---------------------------
+	rb.AddRelativeForce ((moveDirection + BurstDashVector) * RunSpeed * Time.deltaTime);
+			if (GetComponent<BurstDash> ().IsDashing == false) {
+			rb.AddRelativeForce (Physics.gravity * gravity);
+			}
+
+			BurstDashVector *= BurstDashDampenFactor;
+			
+		CurrentSpeed = rb.velocity.magnitude;
+
+		PlayerAnimator.SetFloat ("CurrentSpeed", CurrentSpeed);
+		PlayerAnimator.SetBool ("IsFalling", !IsGrounded());
+		PlayerAnimator.SetBool ("IsDashing",(GetComponent<BurstDash> ().IsDashing));
+		PlayerAnimator.SetBool ("IsSliding",(GetComponent<Slide> ().IsSliding));
+	}
+
+
+	void OnCollisionStay(Collision col)
+	{
+		if (!IsGrounded()) {
+			
+			if (col.collider.tag == "Wall") 
+			{
+				Debug.DrawRay (col.contacts [0].point, col.contacts [0].normal, Color.green, 1.25f);
+				if (Input.GetButton ("Jump")) 
+				{
+                    /*
+                    float moveHorizontal = Input.GetAxis("Horizontal");
+                    float moveVertical = Input.GetAxis("Vertical");
+
+                    Vector3 foward = transform.foward;
+                    Vector3 analogInput = foward * moveVertical;
+                    analogInput += transform.right * moveHorizontal;
+
+                    foward += analogInput * analogScale; // analogScale need to be set as global float
+                    foward = foward.normalized;
+                    */
+
+                    dotProduct = Vector3.Dot ((transform.forward * -1), col.contacts [0].normal);
+					SFXPlayer.PlaySound (0);
+
+					float angle = Vector3.Angle (transform.forward, col.contacts [0].normal);
+
+					//Wall Jump
+					if (angle-90 > WallJumpThreshold) 
+					{
+						
+						Debug.Log ("WallJump");
+
+						reflection = (2 * dotProduct) * col.contacts [0].normal - (transform.forward * -1);
+
+						transform.forward = reflection;
+
+						moveDirection = transform.forward * WallJumpOffForce;
+						moveDirection.y = WallJumpUpForce;
+
+						rb.velocity = Vector3.zero;
+						rb.useGravity = false;
+
+						rb.velocity = ((moveDirection + BurstDashVector) * Time.deltaTime);
+						StopCoroutine ("ReEnableGravity");
+						StartCoroutine ("ReEnableGravity");
+					}
+					//Triangle Jump
+					else if (angle-90 > TriangleJumpThreshold) 
+					{
+
+
+						Debug.Log ("TriangleJump");
+
+						reflection = (2 * dotProduct) * col.contacts [0].normal - (transform.forward * -1);
+
+						transform.forward = reflection;
+
+						moveDirection = transform.forward * TriangleJumpOffForce;
+						moveDirection.y = TriangleJumpUpForce;
+
+						rb.velocity = Vector3.zero;
+						rb.useGravity = false;
+
+						rb.velocity = ((moveDirection + BurstDashVector) * Time.deltaTime);
+
+						StopCoroutine ("ReEnableGravity");
+						StartCoroutine ("ReEnableGravity");
+
+					}
+
+
+
+				}
+			}
+		}
+
+	}
+
+	IEnumerator ReEnableGravity()
+	{
+		yield return new WaitForSeconds (0.5f);
+		rb.useGravity = true;
+	}
+
+
+
+
+}

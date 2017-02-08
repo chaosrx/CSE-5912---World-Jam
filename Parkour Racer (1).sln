@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parkour Racer (1).CSharp.Plugins", "Parkour Racer (1).CSharp.Plugins.csproj", "{200DDA2D-9415-BCFC-50EF-8BCBF275336F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parkour Racer (1).CSharp", "Parkour Racer (1).CSharp.csproj", "{6BCBA723-09B8-0035-403A-D07771D30F0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Parkour Racer (1).CSharp.Editor", "Parkour Racer (1).CSharp.Editor.csproj", "{4D33E1DF-AD23-1C23-E71B-42F0169BFF3F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{200DDA2D-9415-BCFC-50EF-8BCBF275336F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{200DDA2D-9415-BCFC-50EF-8BCBF275336F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{200DDA2D-9415-BCFC-50EF-8BCBF275336F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{200DDA2D-9415-BCFC-50EF-8BCBF275336F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BCBA723-09B8-0035-403A-D07771D30F0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BCBA723-09B8-0035-403A-D07771D30F0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BCBA723-09B8-0035-403A-D07771D30F0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BCBA723-09B8-0035-403A-D07771D30F0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D33E1DF-AD23-1C23-E71B-42F0169BFF3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D33E1DF-AD23-1C23-E71B-42F0169BFF3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D33E1DF-AD23-1C23-E71B-42F0169BFF3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D33E1DF-AD23-1C23-E71B-42F0169BFF3F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,28 @@
+Initialize engine version: 5.4.0f3 (a6d8d714de6f)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: AMD Radeon HD 7800 Series (ID=0x6818)
+    Vendor:   ATI
+    VRAM:     2026 MB
+Default GameObject Tag: Post Overlay already registered
+ 
+(Filename:  Line: 88)
+
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\Assembly-CSharp-firstpass.dll (this message is harmless)
+Loading D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\Assembly-CSharp-firstpass.dll into Unity Child Domain
+Platform assembly: D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+- Completed reload, in  0.039 seconds
+Platform assembly: D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: D:\OneDrive\Parkour Racer\Combined\Parkour Racer\test9_Data\Managed\System.dll (this message is harmless)
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.

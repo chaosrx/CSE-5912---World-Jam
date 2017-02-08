@@ -1,0 +1,46 @@
+public GameObject Player
+public GameObject Wall
+
+//Stick and run on wall
+
+//getting the new foward
+Vector3 wallNormal = wall.normal //code to get the normal from a raycast or collision
+Vector3 playerFoward = Player.transform.foward;
+Vector3 playerUp = Player.transform.up;
+
+float dotProduct = Vector3.Dot(PlayerFoward, wallNormal);
+
+//Parallel Off the wall and in the direction the player was going
+Vector3 wallParallel= (playerFoward - wallNormal * dotProduct);
+
+	//wallParallelCould be 0 by default so
+	if(wallParallel.magnitude <= 0.0001f)
+	{
+		wallParallel= player.transform.right * -1;
+	}
+wallParallel= wallParallel.normalized;
+
+
+//getting the cross prodcuct of the wall parallel and the wall normal
+Vector3 crossPos = (Vectror3.cross(wallParallel, wallNormal)).normalized;
+Vector3 crossNeg = crossPos * -1;
+
+Vector3 newFoward = Vector3.zero;
+
+//finds the closest "Up" that is on the wall plane to act as the new up
+//and adds the side compenent and up compenent of the new foward
+if( (crossPos - playerUp ).magnitude < ( crossNeg - playerUp ).magnitude )
+{
+newFoward += wallParallel(1 - Mathf.abs(dotProduct));
+newFoward += crossPos * Mathf.abs(dotProduct);
+}
+else
+{
+newFoward += wallParallel(1 - Mathf.abs(dotProduct))
+newFoward += crossNeg * Mathf.abs(dotProduct);
+}
+newFoward = newFoward.normalized;
+
+//assinging the new direction
+Quaternion newRotation = Quaternion.LookRotation(newFoward, wallNormal);
+transform.rotation = newRotation;

@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/Level_1-TJ.unity
+  isLoaded: 1
+  isActive: 1

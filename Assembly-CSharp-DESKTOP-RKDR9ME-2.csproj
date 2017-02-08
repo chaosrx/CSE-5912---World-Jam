@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <RootNamespace></RootNamespace>
+    <ProjectGuid>{B8BDA6C6-EC82-C55A-2E7A-F6FDB916CF41}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <AssemblyName>Assembly-CSharp</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <BaseDirectory>Assets</BaseDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Temp\bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_4_0;UNITY_5_4;UNITY_5;ENABLE_NEW_BUGREPORTER;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_EDITOR_RETINA;ENABLE_RETINA_GUISTYLES;ENABLE_FRAME_DEBUGGER;ENABLE_GENERICS;ENABLE_HOME_SCREEN;ENABLE_IMAGEEFFECTS;ENABLE_LIGHT_PROBES_LEGACY;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_PLUGIN_INSPECTOR;ENABLE_SHADOWS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_SPRITE_POLYGON;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_VR;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;INCLUDE_IL2CPP;INCLUDE_DIRECTX12;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_LOCALIZATION;ENABLE_ANDROID_ATLAS_ETC1_COMPRESSION;ENABLE_EDITOR_TESTS_RUNNER;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_TEXTUREID_MAP;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_WIN;UNITY_TEAM_LICENSE;CROSS_PLATFORM_INPUT</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Temp\bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn>0169</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="UnityEngine">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEditor">
+      <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEditor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+     <Compile Include="Assets\Hover\HoverCarControl.cs" />
+     <Compile Include="Assets\Hover\HoverFollowCam.cs" />
+     <Compile Include="Assets\Hover\HoverMotor.cs" />
+     <Compile Include="Assets\JumpPhysics\JumpPhysics.cs" />
+     <Compile Include="Assets\JumpPhysics\JumpPhysics2D.cs" />
+     <Compile Include="Assets\LookForward.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\DemoCameraController.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\DemoPlayerController.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\ItemUI\ItemSlots.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\ItemUI\PickUpItem.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\PauseGame.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\PowerUp\GravityFieldPowerUp.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\PowerUp\ParticleSystemRotator.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Game Play Scripts\PowerUp\PlasmaBallPowerUp.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\ActivateImage.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\BackToPrior.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\ClickToLoad.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\DoNotDestroy.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\ItemRate.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\MapSelect.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\QuitGame.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\SlideButton.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\StartGame.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\Timer.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\ViewControls.cs" />
+     <Compile Include="Assets\Nicolas Assets\Scripts\Screen Scritps\ViewSettings.cs" />
+     <Compile Include="Assets\Obstacles\Scripts\Oscillate.cs" />
+     <Compile Include="Assets\Obstacles\Scripts\PistonMove.cs" />
+     <Compile Include="Assets\Obstacles\Scripts\PlatformMove.cs" />
+     <Compile Include="Assets\Obstacles\Scripts\Spin.cs" />
+     <Compile Include="Assets\Scripts\AI-Replay\AIController.cs" />
+     <Compile Include="Assets\Scripts\AI-Replay\AIPathNode.cs" />
+     <Compile Include="Assets\Scripts\AI-Replay\AIPathing.cs" />
+     <Compile Include="Assets\Scripts\AI-Replay\NodeBuilder.cs" />
+     <Compile Include="Assets\Scripts\AI-Replay\ReplayPathFollow.cs" />
+     <Compile Include="Assets\Scripts\AI-Replay\ReplayPathMaker.cs" />
+     <Compile Include="Assets\Scripts\BurstDash.cs" />
+     <Compile Include="Assets\Scripts\Checkpoint.cs" />
+     <Compile Include="Assets\Scripts\DevCheckpointCheat.cs" />
+     <Compile Include="Assets\Scripts\JumpTrigger.cs" />
+     <Compile Include="Assets\Scripts\MainCamera.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
+     <Compile Include="Assets\Scripts\PlayerControllerMulti.cs" />
+     <Compile Include="Assets\Scripts\PlayerRacePosition.cs" />
+     <Compile Include="Assets\Scripts\Slide.cs" />
+     <Compile Include="Assets\Scripts\SlopeAlign.cs" />
+     <Compile Include="Assets\Scripts\SoundPlayer.cs" />
+     <Compile Include="Assets\Scripts\Stomp.cs" />
+     <Compile Include="Assets\Scripts\TeleportToStart.cs" />
+     <Compile Include="Assets\Scripts\WallCling.cs" />
+     <Compile Include="Assets\Scripts\WallJump.cs" />
+     <Compile Include="Assets\SmoothFollow.cs" />
+     <Compile Include="Assets\Sounds\MusicPlayer.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\BSPTree.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\BruteForceMesh.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\RPGController\RPGMesh.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\RPGController\RPGTriangleTree.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\SuperCharacterController.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\SuperCollider.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\SuperCollisionType.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\SuperMath.cs" />
+     <Compile Include="Assets\SuperCharacterController\Core\SuperStateMachine.cs" />
+     <Compile Include="Assets\SuperCharacterController\DebugDraw.cs" />
+     <Compile Include="Assets\SuperCharacterController\Math3d.cs" />
+     <None Include="Assets\Sample Assets\Vehicles\Car\Shaders\DiffuseReflectiveShader.shader" />
+     <None Include="Assets\TSF\Shaders\TSFOutline.shader" />
+     <None Include="Assets\Standard Assets\Fonts\OpenSans\License!.txt" />
+     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
+     <None Include="Assets\TSF\Shaders\TSF.shader" />
+     <None Include="Assets\SuperCharacterController\README.txt" />
+     <None Include="Assets\Standard Assets\Characters\ThirdPersonCharacter\ThirdPersonCharacterGuidelines.txt" />
+     <None Include="Assets\JumpPhysics\ReadMe.txt" />
+     <None Include="Assets\prototype_textures\readme.txt" />
+     <None Include="Assets\Standard Assets\Cameras\CameraGuidelines.txt" />
+     <None Include="Assets\Standard Assets\Characters\FirstPersonCharacter\FirstPersonCharacterGuidelines.txt" />
+     <None Include="Assets\Standard Assets\Characters\RollerBall\RollerBallGuidelines.txt" />
+ <Reference Include="UnityEngine.UI">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Networking">
+ <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{DBF6EC98-A705-FD98-5882-9710CF722801}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  
+</Project>
